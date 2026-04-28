@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --font-main: 'Outfit', sans-serif;
+  
+  /* Color Palette - Dark Cyberpunk / Premium */
+  --bg-dark: #090a0f;
+  --bg-card: rgba(15, 18, 25, 0.7);
+  --bg-card-hover: rgba(25, 30, 45, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --border-glass-hover: rgba(255, 255, 255, 0.2);
+  
+  --color-primary: #00f2fe; /* Neon Cyan */
+  --color-secondary: #4facfe; /* Electric Blue */
+  --color-accent-ia: #ff007f; /* Neon Pink/Purple for AI */
+  --color-accent-sim: #00ff87; /* Emerald Green for Sim */
+  --color-text-main: #f8f9fa;
+  --color-text-muted: #a0aec0;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+  --gradient-ia: linear-gradient(135deg, #7928CA 0%, var(--color-accent-ia) 100%);
+  --gradient-sim: linear-gradient(135deg, #11998e 0%, var(--color-accent-sim) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--bg-dark) 0%, #151922 100%);
+
+  /* Shadows */
+  --shadow-neon: 0 0 20px rgba(0, 242, 254, 0.3);
+  --shadow-neon-ia: 0 0 20px rgba(255, 0, 127, 0.3);
+  --shadow-neon-sim: 0 0 20px rgba(0, 255, 135, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--gradient-dark);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+}
+
+.glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glass-hover);
+}
+
+/* Typography Utilities */
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.text-gradient-ia {
+  background: var(--gradient-ia);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sim {
+  background: var(--gradient-sim);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Micro animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(0, 242, 254, 0.5); }
+  100% { box-shadow: 0 0 10px rgba(0, 242, 254, 0.2); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Buttons and Controls */
+.btn-premium {
+  background: var(--gradient-primary);
+  border: none;
+  color: #000;
+  font-family: var(--font-main);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-neon);
+  opacity: 0.95;
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Layout container */
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Specific component layouts */
+.selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.role-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  border: 2px solid transparent;
+}
+
+.role-card.tv-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-neon);
+}
+
+.role-card.mobile-card:hover {
+  border-color: var(--color-accent-sim);
+  box-shadow: var(--shadow-neon-sim);
+}
+
+.role-card svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
