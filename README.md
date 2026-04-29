@@ -53,11 +53,19 @@ El frontend contiene la interfaz principal que se proyecta y el tablero de contr
 
 ## 🕹️ Experiencias Incluidas
 
-1. **💻 Programá la TV:** Ejecución interactiva de comandos visuales básicos.
-2. **🧠 Entrená tu IA:** Demostración de reconocimiento swipe/gesture.
-3. **💥 Simulador de Partículas:** Configuración táctil de físicas interactivas en pantalla.
-4. **🐿️ Ardilla Runner:** Juego de obstáculos de estilo retro (T-Rex Chrome).
-5. **🌰 El Laberinto:** Un mapa 15x15 dinámico con niebla de guerra y temporizador.
+1. **💻 Programá la TV `[Programación]`:** Ejecución interactiva de comandos visuales básicos.
+2. **🧠 Entrená tu IA `[Inteligencia Artificial]`:** Clasificación de datos para entrenar un perfil tecnológico.
+3. **💥 Simulador del Mundo `[Física Computacional]`:** Ajuste de variables físicas (gravedad, rebote, tamaño) en vivo.
+4. **🐿️ Ardilla Runner `[Desarrollo de Videojuegos]`:** Juego de obstáculos retro con efecto parallax de nubes.
+5. **🌰 El Laberinto `[Algoritmos]`:** Mapa generado por backtracking, con niebla de guerra y temporizador.
+
+---
+
+## 🛡️ Control de Sesión y Rotación
+
+Para evitar pantallas bloqueadas por usuarios inactivos en el stand:
+* **Inactividad Automática:** Desconexión automática tras **30 segundos** sin recibir comandos del móvil.
+* **Tecla de Pánico:** Al presionar `Escape`, `r` o `R` en la PC de la TV, la sesión se limpia y se vuelve a generar el QR.
 
 ---
 
