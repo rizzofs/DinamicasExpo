@@ -1002,6 +1002,9 @@ function initConcept4TV() {
   let gameSpeed = 5
   const obstacleEmojis = ['📚', '💻', '🎒', '🔬', '🎓', '🍕']
 
+  // Datos de las Nubes (Parallax)
+  let clouds = []
+
   function spawnObstacle() {
     const randomEmoji = obstacleEmojis[Math.floor(Math.random() * obstacleEmojis.length)]
     obstacles.push({
@@ -1026,6 +1029,19 @@ function initConcept4TV() {
     isGameOver = false
     score = 0
     obstacles = []
+    
+    // Inicializar nubes si no están creadas
+    if (clouds.length === 0) {
+      for (let i = 0; i < 5; i++) {
+        clouds.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * (canvas.height - 150) + 20,
+          size: Math.random() * 20 + 20,
+          speed: Math.random() * 0.8 + 0.3
+        })
+      }
+    }
+
     squirrel.y = canvas.height - 60
     if (squirrel.y < 0) squirrel.y = 240
     squirrel.velocityY = 0
@@ -1039,6 +1055,17 @@ function initConcept4TV() {
   function animateRunner() {
     if (isGameOver || !document.getElementById('runner-canvas')) return
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    // 0. Dibujar Nubes (Parallax)
+    clouds.forEach(cloud => {
+      cloud.x -= cloud.speed
+      if (cloud.x + cloud.size < 0) {
+        cloud.x = canvas.width
+        cloud.y = Math.random() * (canvas.height - 150) + 20
+      }
+      ctx.font = `${cloud.size}px Arial`
+      ctx.fillText('☁️', cloud.x, cloud.y)
+    })
 
     // 1. Dibujar el Suelo
     ctx.strokeStyle = '#fff'
