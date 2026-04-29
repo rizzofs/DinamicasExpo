@@ -76,6 +76,14 @@ function setupRole(role) {
   try {
     socket = io(serverUrl)
     
+    if (myRole === 'tv') {
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'r' || e.key === 'R') {
+          socket.emit('reset_session')
+        }
+      })
+    }
+
     socket.on('connect', () => {
       console.log('Conectado al servidor WebSocket')
       socket.emit('register', myRole)
@@ -108,6 +116,17 @@ function setupRole(role) {
         renderTVConcept(conceptId)
       } else {
         updateMobileConceptUI(conceptId)
+      }
+    })
+
+    // Escuchar reset de sesión (Inactividad o botón de pánico)
+    socket.on('session_reset', () => {
+      console.log('La sesión fue reseteada.')
+      activeConcept = 1
+      if (myRole === 'tv') {
+        renderTVDashboard()
+      } else {
+        renderMobileDashboard()
       }
     })
 

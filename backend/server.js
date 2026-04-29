@@ -28,8 +28,44 @@ let gameState = {
 let rankingRunner = [];
 let rankingMaze = [];
 
+// Temporizador de inactividad
+let inactivityTimer = null;
+
+function resetInactivityTimer() {
+  if (inactivityTimer) clearTimeout(inactivityTimer);
+  
+  inactivityTimer = setTimeout(() => {
+    if (gameState.currentUser) {
+      console.log('Inactividad detectada (30s). Reseteando sesión...');
+      gameState.currentUser = null;
+      gameState.currentSchool = null;
+      gameState.activeConcept = 1;
+      io.emit('session_reset');
+    }
+  }, 30000); // 30 segundos
+}
+
 io.on('connection', (socket) => {
   console.log(`Cliente conectado: ${socket.id}`);
+
+  // Interceptar todos los eventos para resetear el temporizador de inactividad
+  socket.use((packet, next) => {
+    const eventName = packet[0];
+    if (eventName !== 'register' && eventName !== 'reset_session') {
+      resetInactivityTimer();
+    }
+    next();
+  });
+
+  // Tecla de pánico para resetear sesión
+  socket.on('reset_session', () => {
+    console.log('Sesión reseteada por administrador/tecla de pánico.');
+    gameState.currentUser = null;
+    gameState.currentSchool = null;
+    gameState.activeConcept = 1;
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    io.emit('session_reset');
+  });
 
   // Registro de rol
   socket.on('register', (role) => {
