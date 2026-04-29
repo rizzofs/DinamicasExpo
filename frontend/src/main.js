@@ -277,7 +277,7 @@ function renderTVConcept(conceptId) {
   if (conceptId === 1) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Concepto 1: Programá la TV</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Concepto 1: Programá la TV <span style="font-size: 1.5rem; color: var(--color-primary);">[Programación]</span></h2>
         <p style="color: var(--color-primary); font-size: 1.2rem;">Esperando comandos del celular...</p>
         <div id="particle-canvas-container" style="width: 100%; height: 60%; margin-top: 2rem; position: relative; border-radius: 20px; overflow: hidden; background: rgba(0,0,0,0.5);">
           <!-- Canvas para las partículas interactivas -->
@@ -289,7 +289,7 @@ function renderTVConcept(conceptId) {
   } else if (conceptId === 2) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-ia">Concepto 2: Entrená tu IA</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-ia">Concepto 2: Entrená tu IA <span style="font-size: 1.5rem; color: var(--color-accent-ia);">[Inteligencia Artificial]</span></h2>
         <p style="color: var(--color-accent-ia); font-size: 1.2rem;">Recolectando datos del usuario...</p>
         <div id="ia-visualizer" style="width: 100%; max-width: 800px; padding: 2rem; margin-top: 2rem;" class="glass-panel">
           <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
@@ -314,7 +314,7 @@ function renderTVConcept(conceptId) {
   } else if (conceptId === 3) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-sim">Concepto 3: Simulador del Mundo</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-sim">Concepto 3: Simulador del Mundo <span style="font-size: 1.5rem; color: var(--color-accent-sim);">[Física Computacional]</span></h2>
         <p style="color: var(--color-accent-sim); font-size: 1.2rem;">Cambiá las reglas de la física desde el celular.</p>
         <div style="width: 100%; height: 60%; margin-top: 2rem; background: rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden;">
           <canvas id="sim-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
@@ -325,7 +325,7 @@ function renderTVConcept(conceptId) {
   } else if (conceptId === 4) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #ff007f;">Concepto 4: Ardilla Runner 🐿️</h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #ff007f;">Concepto 4: Ardilla Runner 🐿️ <span style="font-size: 1.5rem; color: #ff007f;">[Desarrollo de Videojuegos]</span></h2>
         <p style="color: var(--color-text-muted); font-size: 1.2rem;">¡Saltá para esquivar los libros de la UNLu!</p>
         <div id="game-score" style="font-size: 1.5rem; color: #fff; margin-top: 1rem;">Puntaje: 0</div>
         <div style="width: 100%; max-width: 800px; height: 300px; margin-top: 1.5rem; background: rgba(0,0,0,0.6); border-radius: 20px; overflow: hidden; border: 2px solid var(--border-glass); position: relative;">
@@ -342,7 +342,7 @@ function renderTVConcept(conceptId) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden;">
         <div style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 0.5rem;">
-          <h2 style="font-size: 2rem; color: var(--color-primary); margin: 0;">Laberinto de la Ardilla 🐿️</h2>
+          <h2 style="font-size: 2rem; color: var(--color-primary); margin: 0;">Laberinto de la Ardilla 🐿️ <span style="font-size: 1.2rem; color: var(--color-primary);">[Algoritmos]</span></h2>
           <div id="maze-timer" style="font-size: 2rem; font-weight: bold; color: #00ff87; min-width: 70px; text-align: center;">60s</div>
         </div>
         <p style="color: var(--color-text-muted); font-size: 1rem; margin-bottom: 0.5rem;">Encontrá la nuez 🌰 antes de que se acabe el tiempo.</p>
@@ -451,7 +451,7 @@ function updateMobileConceptUI(conceptId) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Programá la TV</h3>
+          <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Programá la TV <span style="font-size: 0.9rem; color: var(--color-primary); font-weight: normal;">[Programación]</span></h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Elegí una instrucción y mandala a la pantalla.</p>
           
           <div style="display: flex; flex-direction: column; gap: 0.6rem; max-height: 350px; overflow-y: auto; padding-right: 5px;">
@@ -502,7 +502,7 @@ function updateMobileConceptUI(conceptId) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-ia);" class="text-gradient-ia">Entrená tu IA</h3>
+          <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-ia);" class="text-gradient-ia">Entrená tu IA <span style="font-size: 0.9rem; color: var(--color-accent-ia); font-weight: normal;">[Inteligencia Artificial]</span></h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Deslizá para clasificar datos de entrenamiento.</p>
           
           <div id="tinder-card" class="glass-panel" style="width: 100%; aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-radius: 20px; position: relative;">
@@ -556,7 +556,7 @@ function updateMobileConceptUI(conceptId) {
   } else if (conceptId === 3) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column;">
-        <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-sim);" class="text-gradient-sim">El Simulador</h3>
+        <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-sim);" class="text-gradient-sim">El Simulador <span style="font-size: 0.9rem; color: var(--color-accent-sim); font-weight: normal;">[Física Computacional]</span></h3>
         <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Ajustá las variables de la física en vivo.</p>
         
         <div style="display: flex; flex-direction: column; gap: 1.2rem; flex: 1; justify-content: center; overflow-y: auto; padding-bottom: 1rem;">
@@ -632,7 +632,7 @@ function updateMobileConceptUI(conceptId) {
   } else if (conceptId === 4) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;">
-        <h3 style="color: var(--color-primary); font-size: 1.5rem;">¡Ardilla Runner! 🐿️</h3>
+        <h3 style="color: var(--color-primary); font-size: 1.5rem;">¡Ardilla Runner! 🐿️ <span style="font-size: 0.9rem; color: var(--color-primary); font-weight: normal;">[Videojuegos]</span></h3>
         <p style="color: var(--color-text-muted); text-align: center;">Pulsá el botón para saltar obstáculos en la pantalla grande.</p>
         
         <button id="btn-jump" class="btn-premium" style="width: 200px; height: 200px; border-radius: 50%; font-size: 2.2rem; background: var(--gradient-primary); box-shadow: 0 0 30px rgba(0, 242, 254, 0.4); border: none; color: white;">
@@ -656,7 +656,7 @@ function updateMobileConceptUI(conceptId) {
   } else if (conceptId === 5) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem;">
-        <h3 style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.5rem;">Laberinto de la Ardilla 🐿️</h3>
+        <h3 style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.5rem;">Laberinto de la Ardilla 🐿️ <span style="font-size: 0.9rem; color: var(--color-primary); font-weight: normal;">[Algoritmos]</span></h3>
         
         <!-- D-PAD / Cruzeta Direccional -->
         <div style="display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 60px 60px 60px; gap: 10px; justify-content: center; align-items: center;">
