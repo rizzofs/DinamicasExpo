@@ -37,6 +37,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -130,6 +131,8 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn-premium:hover {
