@@ -289,7 +289,7 @@ function renderTVConcept(conceptId) {
   } else if (conceptId === 2) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-ia">Concepto 2: Entrená tu IA <span style="font-size: 1.5rem; color: var(--color-accent-ia);">[Inteligencia Artificial]</span></h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-accent-ia);">Concepto 2: Entrená tu IA <span style="font-size: 1.5rem;">[Inteligencia Artificial]</span></h2>
         <p style="color: var(--color-accent-ia); font-size: 1.2rem; max-width: 800px; text-align: center;">La Inteligencia Artificial (IA) aprende a tomar decisiones usando los datos que le damos. Respondé las preguntas en tu celular para ver cómo la IA analiza tu perfil basándose en tus elecciones.</p>
         <div id="ia-visualizer" style="width: 100%; max-width: 800px; padding: 2rem; margin-top: 2rem;" class="glass-panel">
           <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
@@ -305,7 +305,7 @@ function renderTVConcept(conceptId) {
           <div id="neural-net-view" style="height: 250px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; position: relative;">
              <canvas id="ia-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
              <div id="ia-result-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(9, 10, 15, 0.9); flex-direction: column; justify-content: center; align-items: center; border-radius: 10px; z-index: 20;">
-               <h3 class="text-gradient-ia" style="font-size: 2rem;">¡Perfil Analizado!</h3>
+               <h3 style="font-size: 2rem; color: var(--color-accent-ia);">¡Perfil Analizado!</h3>
                <h2 id="ia-profile-name" style="font-size: 3rem; margin-top: 1rem; color: #00f2fe; text-shadow: 0 0 20px rgba(0,242,254,0.6); text-align: center;">SÚPER TECH</h2>
                <p id="ia-profile-desc" style="color: var(--color-text-main); margin-top: 1rem; font-size: 1.2rem; text-align: center; max-width: 80%;">¡Tenés un potencial enorme en tecnología!</p>
              </div>
@@ -317,7 +317,7 @@ function renderTVConcept(conceptId) {
   } else if (conceptId === 3) {
     container.innerHTML = `
       <div class="animate-fadeIn" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 2rem;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" class="text-gradient-sim">Concepto 3: Simulador del Mundo <span style="font-size: 1.5rem; color: var(--color-accent-sim);">[Física Computacional]</span></h2>
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-accent-sim);">Concepto 3: Simulador del Mundo <span style="font-size: 1.5rem;">[Física Computacional]</span></h2>
         <p style="color: var(--color-accent-sim); font-size: 1.2rem; max-width: 800px;">La física computacional nos permite simular las leyes del universo virtualmente. ¡Cambiá las variables como la gravedad y la velocidad desde tu celular para ver cómo reaccionan las partículas!</p>
         <div style="width: 100%; height: 60%; margin-top: 2rem; background: rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden;">
           <canvas id="sim-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
@@ -505,7 +505,7 @@ function updateMobileConceptUI(conceptId) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div>
-          <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-ia);" class="text-gradient-ia">Entrená tu IA <span style="font-size: 0.9rem; color: var(--color-accent-ia); font-weight: normal;">[Inteligencia Artificial]</span></h3>
+          <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-ia);">Entrená tu IA <span style="font-size: 0.9rem; font-weight: normal;">[Inteligencia Artificial]</span></h3>
           <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">La IA aprende de la información que recibe. Deslizá para decidir qué datos compartir y descubrí qué deduce sobre vos.</p>
           
           <div id="tinder-card" class="glass-panel" style="width: 100%; aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-radius: 20px; position: relative;">
@@ -625,7 +625,7 @@ function updateMobileConceptUI(conceptId) {
 
         socket.emit('training_complete', { profile: pTitle, desc: pDesc, color: pColor })
         container.innerHTML = `<div style="text-align:center; padding-top: 3rem;">
-          <h3 class="text-gradient-ia">¡Perfil Analizado!</h3>
+          <h3 style="color: var(--color-accent-ia);">¡Perfil Analizado!</h3>
           <p style="margin-top:1rem; font-size: 1.1rem; color: var(--color-primary);">Mirá tu resultado en la TV.</p>
         </div>`
       } else {
@@ -642,7 +642,7 @@ function updateMobileConceptUI(conceptId) {
   } else if (conceptId === 3) {
     container.innerHTML = `
       <div style="flex: 1; display: flex; flex-direction: column;">
-        <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-sim);" class="text-gradient-sim">El Simulador <span style="font-size: 0.9rem; color: var(--color-accent-sim); font-weight: normal;">[Física Computacional]</span></h3>
+        <h3 style="margin-bottom: 0.5rem; color: var(--color-accent-sim);">El Simulador <span style="font-size: 0.9rem; font-weight: normal;">[Física Computacional]</span></h3>
         <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Podemos recrear el mundo con cálculos matemáticos. Ajustá los valores de la física real y mirá su efecto en la TV.</p>
         
         <div style="display: flex; flex-direction: column; gap: 1.2rem; flex: 1; justify-content: center; overflow-y: auto; padding-bottom: 1rem;">
@@ -922,15 +922,33 @@ function initConcept3TV() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     simParticles.forEach(p => {
-      p.vy += gravity * 0.1 // Gravedad
+      // 1. Aplicar velocidad a posición (escalado por speed)
       p.x += p.vx * speed
       p.y += p.vy * speed
 
-      // Rebotes con elasticidad variable
-      if (p.x < p.radius) { p.x = p.radius; p.vx *= bounciness; }
-      if (p.x > canvas.width - p.radius) { p.x = canvas.width - p.radius; p.vx *= bounciness; }
-      if (p.y < p.radius) { p.y = p.radius; p.vy *= bounciness; }
-      if (p.y > canvas.height - p.radius) { p.y = canvas.height - p.radius; p.vy *= bounciness; }
+      // 2. Aplicar gravedad a la velocidad
+      p.vy += gravity * 0.15 // Ajuste de fuerza para mejorar la simulación
+
+      // 3. Rebotes robustos con elasticidad variable
+      const bounce = Math.abs(bounciness)
+      
+      if (p.x < p.radius) { 
+        p.x = p.radius; 
+        p.vx = Math.abs(p.vx) * bounce; 
+      }
+      if (p.x > canvas.width - p.radius) { 
+        p.x = canvas.width - p.radius; 
+        p.vx = -Math.abs(p.vx) * bounce; 
+      }
+      if (p.y < p.radius) { 
+        p.y = p.radius; 
+        p.vy = Math.abs(p.vy) * bounce; 
+      }
+      if (p.y > canvas.height - p.radius) { 
+        p.y = canvas.height - p.radius; 
+        p.vy = -Math.abs(p.vy) * bounce;
+        p.vx *= 0.99; // Fricción en el suelo
+      }
 
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
@@ -1167,6 +1185,7 @@ function initConcept4TV() {
   if (canvas.height < 100) canvas.height = 300
 
   let isGameOver = false
+  let hasStarted = false
   let score = 0
   
   // Datos de la Ardilla
@@ -1253,6 +1272,7 @@ function initConcept4TV() {
 
   function resetGame() {
     isGameOver = false
+    hasStarted = false
     score = 0
     obstacles = []
     
@@ -1319,6 +1339,17 @@ function initConcept4TV() {
     ctx.fillText('🐿️', -squirrel.x - 35, squirrel.y + 25)
     ctx.restore()
 
+    if (!hasStarted) {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.5)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = '#00f2fe'
+      ctx.font = 'bold 24px Arial'
+      ctx.textAlign = 'center'
+      ctx.fillText('PRESIONÁ "INICIAR" EN TU CELULAR', canvas.width / 2, canvas.height / 2)
+      requestAnimationFrame(animateRunner)
+      return
+    }
+
     // 3. Gestionar Obstáculos
     spawnTimer++
     if (spawnTimer > Math.max(60, 120 - score / 10)) {
@@ -1362,6 +1393,9 @@ function initConcept4TV() {
   socket.on('squirrel_jump', () => {
     if (isGameOver) {
       resetGame()
+      hasStarted = true
+    } else if (!hasStarted) {
+      hasStarted = true
     } else if (!squirrel.isJumping) {
       squirrel.isJumping = true
       squirrel.velocityY = squirrel.jumpStrength
