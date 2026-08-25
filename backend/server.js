@@ -173,6 +173,8 @@ app.get('/api/ip', (req, res) => {
   let localIp = 'localhost';
   
   for (const name of Object.keys(interfaces)) {
+    if (name.toLowerCase().includes('virtual') || name.toLowerCase().includes('wsl') || name.toLowerCase().includes('vethernet')) continue;
+    
     for (const iface of interfaces[name]) {
       // Filtrar por IPv4 y que no sea interna (localhost)
       if (iface.family === 'IPv4' && !iface.internal) {

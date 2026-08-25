@@ -64,7 +64,7 @@ function renderRoleSelection() {
 // 2. CONFIGURAR ROL Y SOCKET
 function setupRole(role) {
   myRole = role
-  const serverUrl = `http://${window.location.hostname}:3000`
+  const serverUrl = import.meta.env.VITE_BACKEND_URL || `http://${window.location.hostname}:3000`
   
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
@@ -102,7 +102,7 @@ function setupRole(role) {
           <h2 style="color: var(--color-accent-ia); margin-bottom: 1rem;">Error de Conexión</h2>
           <p>No se pudo conectar al servidor en <strong>${serverUrl}</strong>.</p>
           <p style="color: var(--color-text-muted); margin-top: 1rem; max-width: 500px;">
-            Asegurate de que el backend esté corriendo ('npm start' en la carpeta backend) y de estar en la misma red WiFi.
+            Asegurate de que el backend esté corriendo y de estar conectado a internet o la misma red.
           </p>
           <button class="btn-premium" style="margin-top: 2rem;" onclick="location.reload()">Reintentar</button>
         </div>
@@ -185,27 +185,18 @@ function renderTVDashboard() {
     </div>
   `
 
-  // Obtener IP local del backend y generar QR
-  const backendUrl = `http://${window.location.hostname}:3000`
+  // Generar URL móvil basada en el origen actual de la ventana
+  const mobileUrl = `${window.location.origin}/?role=mobile`;
+  const urlDisplay = document.getElementById('pairing-url');
+  if (urlDisplay) urlDisplay.innerText = mobileUrl;
   
-  fetch(`${backendUrl}/api/ip`)
-    .then(res => res.json())
-    .then(data => {
-      const mobileUrl = `http://${data.ip}:${window.location.port}/?role=mobile` // El puerto de Vite
-      document.getElementById('pairing-url').innerText = mobileUrl
-      
-      const canvas = document.getElementById('qr-canvas')
-      if (canvas) {
-        QRCode.toCanvas(canvas, mobileUrl, { width: 250, margin: 1 }, function (error) {
-          if (error) console.error(error)
-          console.log('Código QR generado con éxito!')
-        })
-      }
-    })
-    .catch(err => {
-      console.error('Error al obtener IP:', err)
-      document.getElementById('pairing-url').innerText = `Error al generar QR.`
-    })
+  const canvas = document.getElementById('qr-canvas');
+  if (canvas) {
+    QRCode.toCanvas(canvas, mobileUrl, { width: 250, margin: 1 }, function (error) {
+      if (error) console.error(error);
+      console.log('Código QR generado con éxito!');
+    });
+  }
 
   // Escuchar cuando el usuario se conecta con su nombre
   socket.off('user_joined')
